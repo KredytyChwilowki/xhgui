@@ -101,7 +101,12 @@ class Xhgui_Twig_Extension extends Twig_Extension
 
     public function makePercent($value, $total)
     {
-        $value = $value / $total;
+        if($total===0) {
+            $value = 0;
+        } else {
+            $value = $value / $total;
+        }
+
         return $this->formatPercent($value);
     }
 
